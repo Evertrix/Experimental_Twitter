@@ -1,0 +1,107 @@
+.nav-bar {
+    position: fixed;
+    z-index: 0;
+    background-color: #15202B;
+    height: 100%;
+    top: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 200px;
+    background-color: #15202B;
+}
+
+li a {
+    display: block;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+
+/* Change the link color on hover */
+
+li a:hover {
+    background-color: #555;
+    color: #1381EF;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.twitt-logo {
+    background-color: #15202B;
+    flex-basis: auto;
+    flex-direction: column;
+    position: relative;
+    z-index: 0;
+}
+
+img {
+    width: 35px;
+    height: 35px;
+    margin-left: 60px;
+}
+
+.navigation-align {
+    float: left;
+    margin-top: 50px;
+}
+
+
+.button-tweet {
+    display: inline-block;
+    flex-basis: auto;
+    flex-direction: column;
+    position: relative;
+    z-index: 0;
+    background-color: #4991DA;
+    border-radius: 15px;
+}
+
+
+.blue-tweet span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.account {
+    text-align: right;
+    padding-right: 90px;
+}
+.logout {
+    overflow: auto;
+    float: right;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#container {
+    overflow: auto;
+}
+.publish{
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    width: 560px;
+}
+
+.published_tweets {
+    background-color:red;
+}
+.using {
+    background-color: red;
+}
