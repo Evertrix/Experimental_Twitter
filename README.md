@@ -1,4 +1,4 @@
-# Twitter Clone
+# Exerimental_Twitter_Clone
 
 This is a project working similarly to a real social network like Facebook and Twitter but mainly it likens to Twitter. The main idea is to simply just practice code and styling in preparation for a real projects.
 PHP, MySQL, HTML and CSS are used in the project.
