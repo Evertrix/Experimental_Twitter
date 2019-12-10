@@ -11,6 +11,7 @@ include_once('db.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/CSS/dashboard_style.css">
+    <link rel="stylesheet" href="assets/CSS/style.php" media="screen">
     <link rel="shortcut icon" type="image/x-icon" href="assets/Images/twitter-white-icon-16.jpg">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -46,8 +47,7 @@ include_once('db.php');
             if (mysqli_num_rows($res) > 0) {
 
                 while ($row = mysqli_fetch_assoc($res)) {
-//                echo "<p>id: ".$row['user_id']."User: ".$row['user']."Tweet: ".$row['tweet']. "</p>";
-                    echo "<div class = 'text-center'><p>User: " . $row['user'] . " Tweet: " . $row['tweet'] . "</p></div>";
+                    echo "<blockquote class = 'text-center'><p class='twitter-tweet'>User: " . $row['user'] . " Tweet: " . $row['tweet'] . "</p></blockquote>";
                 }
             }
             mysqli_close($conn);

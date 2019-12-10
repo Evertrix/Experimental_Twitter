@@ -32,8 +32,6 @@ if (isset($_POST['submit']) && isset($_POST['new_password']) && isset($_POST['ol
 
         if (mysqli_num_rows($search_for_password) == 1) {
             $result = mysqli_fetch_array($search_for_password);
-            // echo $result['password'].' : '.$old;
-            // if found password equals the written old password by the user
             if ($result['password'] == $old_password) {
                 $updating_the_password = mysqli_query($conn, "UPDATE `users` SET `password`='$new_password' WHERE `username`='$user'");
                 if ($updating_the_password) {

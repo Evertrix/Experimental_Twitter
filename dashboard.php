@@ -13,16 +13,17 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // check if a tweet has been submitted if not just show the form
+
 if (isset($_POST["tweet"])) {
     $sql = "INSERT INTO tweets (user_id, user, tweet) VALUES ('{$_SESSION['user_id']}', '{$_SESSION['username']}', '$make_a_tweet')";
 
-//if (mysqli_query($conn, $sql) !== true ) {
     if (mysqli_query($conn, $sql) == true) {
         header("Location: dashboard.php");
         exit;
     }
-    //$res = mysqli_fetch_array($query);
+
 }
+
 // if a tweet has been submitted the save it in the database an then show the form
 
 ?>
@@ -31,6 +32,22 @@ if (isset($_POST["tweet"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+
+            function gotkey() {
+                var count = document.getElementById("postMessage").value.length;
+
+                if(count > 140) {
+                    var output = "Sorry";
+                    count;
+                }
+                else {
+                    var output = "Character count: " + count + " of " + 140;
+                }
+                document.getElementById("status").innerHTML = output;
+            }
+
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/CSS/dashboard_style.css">
@@ -77,7 +94,8 @@ if (isset($_POST["tweet"])) {
 
         <div class="publish">
             <form method="post" action="dashboard.php">
-                <div><textarea name="tweet" plcaeholder="Tweet here" rows="3" cols="40"></textarea></div>
+                <div><textarea id="postMessage" onkeyup = "gotkey()" name="tweet" plcaeholder="Tweet here" rows="3" cols="40"></textarea></div>
+                <div id = "status"></div>
                 <div>
                     <input type="submit" name="submit" value="Publish">
                 </div>
@@ -91,7 +109,7 @@ if (isset($_POST["tweet"])) {
         if (mysqli_num_rows($res) > 0) {
 
             while ($row = mysqli_fetch_assoc($res)) {
-                echo "<div class = 'text-center'><p class='published_tweets'>User: " . $row['user'] . " Tweet: " . $row['tweet'] . "</p></div>";
+                echo "<blockquote class = 'text-center'><p class='twitter-tweet'>User: " . $row['user'] . " Tweet: " . $row['tweet'] . "</p></blockquote>";
             }
         }
         mysqli_close($conn);

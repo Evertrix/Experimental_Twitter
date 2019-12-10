@@ -92,16 +92,4 @@ img {
 #container {
     overflow: auto;
 }
-.publish{
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    width: 560px;
-}
 
-.published_tweets {
-    background-color:red;
-}
-.using {
-    background-color: red;
-}
