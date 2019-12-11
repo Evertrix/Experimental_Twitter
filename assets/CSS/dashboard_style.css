@@ -1,3 +1,6 @@
+body {
+    background-color: #E9EAED;
+}
 .nav-bar {
     position: fixed;
     z-index: 0;
@@ -9,7 +12,6 @@
 ul {
     list-style-type: none;
     margin: 0 auto;
-    padding: 0 auto;
     width: 200px;
     background-color: #15202B;
 }
@@ -92,4 +94,3 @@ img {
 #container {
     overflow: auto;
 }
-

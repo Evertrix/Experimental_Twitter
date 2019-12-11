@@ -5,7 +5,7 @@ mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<link rel="shortcut icon" type="image/x-icon" href="images/twitter-white-icon-16.jpg">
+<link rel = "shortcut icon" type = "image/x-icon" href = "assets/images/twitter-icon-18-256.png">
 <head>
     <meta charset="UTF-8">
     <title>Password Reset PHP</title>
