@@ -51,7 +51,7 @@ if (isset($_POST["tweet"])) {
     <link rel="stylesheet" type="text/css" href="assets/CSS/dashboard_style.css">
     <link rel="stylesheet" type="text/css" href="assets/CSS/textarea.css">
     <link rel="stylesheet" href="assets/CSS/style.php" media="screen">
-    <link rel = "shortcut icon" type = "image/x-icon" href = "assets/images/twitter-icon-18-256.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -120,7 +120,8 @@ if (isset($_POST["tweet"])) {
   <div class=\"tweet-header\">
     <img src=\"https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg\" style='padding-left: 10px' alt=\"\" class=\"avator\"> 
     <div class=\"tweet-header-info\">";
-                echo "<span>" . $row['user'] . "</span>";
+//                echo "<span>" . $row['user'] . "</span>";
+                echo $row['user'];
                 echo "<span>" . date("Y/m/d") . "</span>";
                 echo "<p>" . $row['tweet'] . "</p>";
 
@@ -153,7 +154,7 @@ if (isset($_POST["tweet"])) {
       <svg class=\"feather feather-send sc-dnqmqq jxshSx\" xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line x1=\"22\" y1=\"2\" x2=\"11\" y2=\"13\"></line><polygon points=\"22 2 15 22 11 13 2 9 22 2\"></polygon></svg>
     </div>
     </div>";
-               echo "</div>";
+                echo "</div>";
             }
         }
         mysqli_close($conn);

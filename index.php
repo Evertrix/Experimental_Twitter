@@ -13,7 +13,7 @@ include_once('db.php');
     <link rel="stylesheet" type="text/css" href="assets/CSS/dashboard_style.css">
     <link rel="stylesheet" type="text/css" href="assets/CSS/textarea.css">
     <link rel="stylesheet" href="assets/CSS/style.php" media="screen">
-    <link rel = "shortcut icon" type = "image/x-icon" href = "assets/images/twitter-icon-18-256.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Twitter</title>

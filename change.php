@@ -5,19 +5,18 @@ include_once('db.php');
 
 $errors = [];
 
-    if(empty($_POST['old_password'])) {
-        array_push($errors, 'Old Password is required');
-    }
+if (empty($_POST['old_password'])) {
+    array_push($errors, 'Old Password is required');
+}
 
-    if(empty($_POST['new_password']) || empty($_POST['re-typed_password'])) {
-        array_push($errors, 'Password are required');
-    }
+if (empty($_POST['new_password']) || empty($_POST['re-typed_password'])) {
+    array_push($errors, 'Password are required');
+}
 
-    if($_POST['new_password'] !== $_POST['re-typed_password']) {
-        array_push($errors, 'Passwords do not match');
+if ($_POST['new_password'] !== $_POST['re-typed_password']) {
+    array_push($errors, 'Passwords do not match');
 
-    }
-
+}
 
 
 if (isset($_POST['submit']) && isset($_POST['new_password']) && isset($_POST['old_password']) && isset($_POST['re-typed_password'])) {
@@ -36,13 +35,13 @@ if (isset($_POST['submit']) && isset($_POST['new_password']) && isset($_POST['ol
                 $updating_the_password = mysqli_query($conn, "UPDATE `users` SET `password`='$new_password' WHERE `username`='$user'");
                 if ($updating_the_password) {
                     echo 'Updated password!';
-                }else
+                } else
                     echo 'Failed to update your password.';
-            }else
+            } else
                 echo 'Your entered current password was not correct. Please try again.';
-        }else
+        } else
             echo 'Your username was not found in our users database!';
-    }else
+    } else
         echo 'The two new passwords did not match. Please ensure they match and that the current password field is correct then try again.';
 
 }
@@ -58,7 +57,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel = "shortcut icon" type = "image/x-icon" href = "assets/images/twitter-icon-18-256.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -66,13 +65,13 @@ mysqli_close($conn);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Change Password</title>
 </head>
-    <body>
-        <h3>Change Password</h3>
-            <form action="change.php" method = 'post'>
-                <input type = "password" name ="old_password" placeholder = "Old Password"><br>
-                <input type = "password" name ="new_password" placeholder = "New Password"><br>
-                <input type = "password" name ="re-typed_password" placeholder = "Re-Type New Password">
-                <input type = "submit" name = "submit" value = "Change">
-            </form>
-    </body>
+<body>
+<h3>Change Password</h3>
+<form action="change.php" method='post'>
+    <input type="password" name="old_password" placeholder="Old Password"><br>
+    <input type="password" name="new_password" placeholder="New Password"><br>
+    <input type="password" name="re-typed_password" placeholder="Re-Type New Password">
+    <input type="submit" name="submit" value="Change">
+</form>
+</body>
 </html>
