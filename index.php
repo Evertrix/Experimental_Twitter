@@ -28,14 +28,8 @@ include_once('db.php');
                     <div class="twitt-logo"><img src="assets/images/twitter-icon-18-256.png"></div>
                     <br>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#explore">Explore</a></li>
-                        <li><a href="#notif">Notifications</a></li>
-                        <li><a href="#messages">Messages</a></li>
-                        <li><a href="#bookmarks">Bookmarks</a></li>
-                        <li><a href="#lists">Lists</a></li>
-                        <li><a href="#profile">Profile</a></li>
-                        <li><a href="#more">More</a></li>
+                        <li><a href="login.php">Log In</a></li>
+                        <li><a href="register.php">Sign Up</a></li>
                     </ul>
                     <br>
                 </nav>

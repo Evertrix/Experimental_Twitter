@@ -120,9 +120,7 @@ if (isset($_POST["tweet"])) {
   <div class=\"tweet-header\">
     <img src=\"https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg\" style='padding-left: 10px' alt=\"\" class=\"avator\"> 
     <div class=\"tweet-header-info\">";
-//                echo "<span>" . $row['user'] . "</span>";
                 echo $row['user'];
-                echo "<span>" . date("Y/m/d") . "</span>";
                 echo "<p>" . $row['tweet'] . "</p>";
 
                 echo "</div>";
