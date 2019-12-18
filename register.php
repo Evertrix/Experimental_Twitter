@@ -50,6 +50,7 @@ if (isset($_POST['signin'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style_register.css">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -57,16 +58,32 @@ if (isset($_POST['signin'])) {
           crossorigin="anonymous">
     <title>Index Page</title>
 </head>
-<body>
+<body id = "body">
 <header>
-    <form method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="retyped_password" placeholder="Re-Type Your Password">
-        <input type="submit" name="signin" value="Sign In"><br>
-    </form>
-    <p>You have an account? <a href="login.php" name="user-sign-in">Log In</a></p>
+    <div>
+        <img src="assets/images/twitter-icon-18-256.png" class = "tweet-image">
+    </div>
 </header>
+
+
+
+
+<div class="col-md">
+    <div id="logbox">
+        <form id="signup" method="post" action = "register.php">
+            <h1>Create an Account</h1>
+            <input name="username" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+            <input name="email" type="email" placeholder="Email address" class="input pass"/>
+            <input name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+            <input name="retyped_password" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+            <input type="submit" name="signin" value="Sign Up" class="inputButton">
+
+            <div class="text-center">
+                Already have an account? <a href="login.php" name="user-sign-in" id="login_id">Log In</a>
+            </div>
+        </form>
+    </div>
+
+
 </body>
 </html>
