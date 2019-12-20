@@ -114,7 +114,6 @@ if (isset($_POST["tweet"])) {
         if (mysqli_num_rows($res) > 0) {
 
             while ($row = mysqli_fetch_assoc($res)) {
-//                echo "<blockquote class = 'text-center'><p class='twitter-tweet'>User: " . $row['user'] . " Tweet: " . $row['tweet'] . "</p></blockquote>";
 
                 echo "<div class=\"tweet-wrap\">
   <div class=\"tweet-header\">

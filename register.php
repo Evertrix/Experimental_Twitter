@@ -5,7 +5,6 @@ session_start();
 include_once('db.php');
 
 $errors = array();
-
 if (isset($_POST['signin'])) {
     // receive all input values from the form
     $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -28,20 +27,45 @@ if (isset($_POST['signin'])) {
     }
 
 
-    if (mysqli_num_rows($username) > 0) {
-        $name_error = "Sorry... username already taken";
-    } else if (mysqli_num_rows($email) > 0) {
-        $email_error = "Sorry... email already taken";
-    } else {
+    $check_username = "SELECT * FROM users WHERE username='$username'";
+    $check_email = "SELECT * FROM users WHERE email='$email'";
+    $query_username = mysqli_query($conn, $check_username);
+    $query_email = mysqli_query($conn, $check_email);
+
+    if (mysqli_num_rows($query_email) > 0 && mysqli_num_rows($query_username) > 0) {
+        $error = true;
+        echo '<script language="javascript">';
+
+        echo 'alert("Username And Email already taken")';
+        echo '</script>';
+    }
+
+    elseif (mysqli_num_rows($query_username) > 0) {
+        $error = true;
+        echo '<script language="javascript">';
+
+        echo 'alert("Username already taken")';
+        echo '</script>';
+    }
+
+     else if(mysqli_num_rows($query_email) > 0) {
+        $error = true;
+        echo '<script language="javascript">';
+
+        echo 'alert("Email already taken")';
+        echo '</script>';
+        header("Refresh:0; url=register.php");
+    }
+
+    else {
         $query = "INSERT INTO users (username, email, password) 
       	    	  VALUES ('$username', '$email', '" . md5($password) . "')";
         $results = mysqli_query($conn, $query);
         header("Location: login.php");
-        exit;
     }
 
 }
-
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -58,24 +82,25 @@ if (isset($_POST['signin'])) {
           crossorigin="anonymous">
     <title>Index Page</title>
 </head>
-<body id = "body">
+<body id="body">
 <header>
     <div>
-        <img src="assets/images/twitter-icon-18-256.png" class = "tweet-image">
+        <img src="assets/images/twitter-icon-18-256.png" class="tweet-image">
     </div>
 </header>
 
 
-
-
 <div class="col-md">
     <div id="logbox">
-        <form id="signup" method="post" action = "register.php">
+        <form id="signup" method="post" action="register.php">
             <h1>Create an Account</h1>
-            <input name="username" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+            <input name="username" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$"
+                   autofocus="autofocus" required="required" class="input pass"/>
             <input name="email" type="email" placeholder="Email address" class="input pass"/>
-            <input name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
-            <input name="retyped_password" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+            <input name="password" type="password" placeholder="Choose a password" required="required"
+                   class="input pass"/>
+            <input name="retyped_password" type="password" placeholder="Confirm password" required="required"
+                   class="input pass"/>
             <input type="submit" name="signin" value="Sign Up" class="inputButton">
 
             <div class="text-center">

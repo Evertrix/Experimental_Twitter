@@ -4,7 +4,6 @@ session_start();
 include('db.php');
 
 $errors = array();
-// $login = $_POST["login"];
 
 
 if (isset($_POST['login'])) {
@@ -57,17 +56,6 @@ mysqli_close($conn);
 <body>
 
 
-<!--<header>-->
-<!--    <form method="post" action="login.php">-->
-<!--        <input type="text" name="username" placeholder="Username">-->
-<!--        <input type="password" name="password" placeholder="Password">-->
-<!--        <input type="submit" name="login" value="Log In"><br>-->
-<!--        <span><a href="forgotten_password.php">Forgot your password?</a></span>-->
-<!--    </form>-->
-<!--    <p>You don't have an account? <a href="register.php" name="user-sign-up">Sign Up</a></p>-->
-<!--</header>-->
-
-
 <div class='screen'>
 
     <img class='logo' src='https://s.cdpn.io/15065/twitter-bird-dark-bgs.png'/>
@@ -80,7 +68,6 @@ mysqli_close($conn);
         <br>
         <div><input type="password" name="password" placeholder="Password"></div>
 
-        <!--        <a class='small flo-l' href=''>Did you forget?</a>-->
         <div class='flo-r cf'>
             <input class='flo-l' type='checkbox' id='remember-me'/>
 
@@ -88,7 +75,6 @@ mysqli_close($conn);
         </div>
 
         <div class='signup-link flo-l clr-l'>
-            <!--            <p class='small'>New to Twitter?<a href="register.php" name="user-sign-up">Sign Up</a></p>-->
             <p class='small'>You are new to twitter?</p>
             <a class='medium' href="register.php" name="user-sign-up">Sign Up</a>
         </div>
