@@ -49,7 +49,7 @@ include_once('db.php');
   <div class=\"tweet-header\">
     <img src=\"https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg\" style='padding-left: 10px' alt=\"\" class=\"avator\"> 
     <div class=\"tweet-header-info\">";
-                    echo "<span>" . $row['user'] . "</span>";
+                    echo "<div>".$row['user']."<span>•</span>"."<span>". $row['time'] ."</span>"."</div>";
                     echo "<p>" . $row['tweet'] . "</p>";
 
                     echo "</div>";
