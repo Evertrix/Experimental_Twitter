@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // check if a tweet has been submitted if not just show the form
 
-if (isset($_POST["tweet"])) {
+if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
     $sql = "INSERT INTO tweets (user_id, user, tweet) VALUES ('{$_SESSION['user_id']}', '{$_SESSION['username']}', '$make_a_tweet')";
 
     if (mysqli_query($conn, $sql) == true) {
@@ -111,6 +111,7 @@ if (isset($_POST["tweet"])) {
         <?php
         $select = "SELECT * FROM tweets ORDER BY id DESC";
         $res = mysqli_query($conn, $select);
+
         if (mysqli_num_rows($res) > 0) {
 
             while ($row = mysqli_fetch_assoc($res)) {
@@ -119,7 +120,7 @@ if (isset($_POST["tweet"])) {
   <div class=\"tweet-header\">
     <img src=\"https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg\" style='padding-left: 10px' alt=\"\" class=\"avator\"> 
     <div class=\"tweet-header-info\">";
-                echo $row['user'];
+                echo "<div>".$row['user']."<span>•</span>"."<span>". $row['time'] ."</span>"."</div>";
                 echo "<p>" . $row['tweet'] . "</p>";
 
                 echo "</div>";
