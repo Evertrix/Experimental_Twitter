@@ -61,8 +61,8 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
 <body>
 
 <div>
-    <p class="logout"><a href="logout.php">Log Out</a></p>
-    <p class="logout"><a href="change.php">Change Password</a></p>
+<!--    <p class="logout"><a href="logout.php">Log Out</a></p>-->
+<!--    <p class="logout"><a href="change.php">Change Password</a></p>-->
     <div class="account">
         <p><?php echo "Hello, " . $_SESSION['username'] ?></p>
     </div>
@@ -76,14 +76,14 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
                     <div class="twitt-logo"><img src="assets/images/twitter-icon-18-256.png"></div>
                     <br>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#explore">Explore</a></li>
-                        <li><a href="#notif">Notifications</a></li>
-                        <li><a href="#messages">Messages</a></li>
-                        <li><a href="#bookmarks">Bookmarks</a></li>
-                        <li><a href="#lists">Lists</a></li>
-                        <li><a href="#profile">Profile</a></li>
-                        <li><a href="#more">More</a></li>
+                        <li><a href="logout.php">Log Out</a></li>
+                        <li><a href="change.php">Change Password</a></li>
+<!--                        <li><a href="#notif">Notifications</a></li>-->
+<!--                        <li><a href="#messages">Messages</a></li>-->
+<!--                        <li><a href="#bookmarks">Bookmarks</a></li>-->
+<!--                        <li><a href="#lists">Lists</a></li>-->
+<!--                        <li><a href="#profile">Profile</a></li>-->
+<!--                        <li><a href="#more">More</a></li>-->
                     </ul>
                     <br>
 
@@ -101,7 +101,7 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
                         <textarea class="messageBox" id="postMessage" name="tweet" onkeyup="gotkey()"
                                   placeholder="What's happening?"></textarea>
                         <label class="wordCounter" id="status"></label>
-                        <input type="submit" name="submit" class="postButton" id="submitPost" value="Tweet">
+                        <input type="submit" style="background-image: url(http://feathered.herokuapp.com/assets/feather-dcc5aed6a096e25f4ff1524982285704.svg)" name="submit" class="post_Button" id="submit_Post" value="Tweet">
                     </div>
                 </div>
             </form>
