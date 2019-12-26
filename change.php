@@ -33,8 +33,11 @@ if (isset($_POST['submit']) && isset($_POST['new_password']) && isset($_POST['ol
             $result = mysqli_fetch_array($search_for_password);
             if ($result['password'] == $old_password) {
                 $updating_the_password = mysqli_query($conn, "UPDATE `users` SET `password`='$new_password' WHERE `username`='$user'");
+
                 if ($updating_the_password) {
                     echo 'Updated password!';
+                    header("Location: login.php");
+                    exit;
                 } else
                     echo 'Failed to update your password.';
             } else
@@ -58,6 +61,8 @@ mysqli_close($conn);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style_login.scss">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style_register.css">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -66,12 +71,20 @@ mysqli_close($conn);
     <title>Change Password</title>
 </head>
 <body>
-<h3>Change Password</h3>
-<form action="change.php" method='post'>
-    <input type="password" name="old_password" placeholder="Old Password"><br>
-    <input type="password" name="new_password" placeholder="New Password"><br>
-    <input type="password" name="re-typed_password" placeholder="Re-Type New Password">
-    <input type="submit" name="submit" value="Change">
-</form>
+
+
+<div class="col-md">
+    <div id="logbox">
+        <form id="signup" action="change.php" method='post'>
+            <h1>Change your Password</h1>
+            <input type="password" name="old_password" placeholder="Old Password" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+
+            <input type="password" name="new_password" placeholder="New Password" required="required" class="input pass"/>
+
+            <input type="password" name="re-typed_password" placeholder="Re-Type New Password" class="input pass">
+
+            <input type="submit" name="submit" value="Change" class="inputButton">
+        </form>
+    </div>
 </body>
 </html>

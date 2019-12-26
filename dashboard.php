@@ -9,7 +9,7 @@ $make_a_tweet = $_POST['tweet'];
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
-    exit;
+    die();
 }
 
 // check if a tweet has been submitted if not just show the form
@@ -19,7 +19,7 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
 
     if (mysqli_query($conn, $sql) == true) {
         header("Location: dashboard.php");
-        exit;
+        die();
     }
 
 }
@@ -44,12 +44,15 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
             document.getElementById("status").innerHTML = output;
         }
 
+
+
     </script>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/CSS/dashboard_style.css">
     <link rel="stylesheet" type="text/css" href="assets/CSS/textarea.css">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style_login.scsss">
     <link rel="stylesheet" href="assets/CSS/style.php" media="screen">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
     <link rel="stylesheet"
@@ -61,8 +64,6 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
 <body>
 
 <div>
-<!--    <p class="logout"><a href="logout.php">Log Out</a></p>-->
-<!--    <p class="logout"><a href="change.php">Change Password</a></p>-->
     <div class="account">
         <p><?php echo "Hello, " . $_SESSION['username'] ?></p>
     </div>
@@ -78,12 +79,6 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
                     <ul>
                         <li><a href="logout.php">Log Out</a></li>
                         <li><a href="change.php">Change Password</a></li>
-<!--                        <li><a href="#notif">Notifications</a></li>-->
-<!--                        <li><a href="#messages">Messages</a></li>-->
-<!--                        <li><a href="#bookmarks">Bookmarks</a></li>-->
-<!--                        <li><a href="#lists">Lists</a></li>-->
-<!--                        <li><a href="#profile">Profile</a></li>-->
-<!--                        <li><a href="#more">More</a></li>-->
                     </ul>
                     <br>
 
@@ -141,11 +136,12 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
     
     
     <div class=\"likes\">
-      <svg class=\"feather feather-heart sc-dnqmqq jxshSx\" xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"></path></svg>
+      <svg class='heart' xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"></path></svg>
       <div class=\"likes-count\">
-        2.6k
+       2.6k
       </div>
     </div>
+    
     
     
     <div class=\"message\">
@@ -155,6 +151,7 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
                 echo "</div>";
             }
         }
+
         mysqli_close($conn);
         ?>
 
