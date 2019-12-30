@@ -71,7 +71,7 @@ body {
 label.small:hover {
   color: hsl(0, 0%, 50%)
 }
-
+//
 .large {
   color: #fff;
   font-size: 1.3em;
@@ -93,7 +93,7 @@ label.small:hover {
 .signup-link {
   margin-top: 1.4em;
 }
-
+//
 .login {
   position: absolute;
   bottom: 0;
@@ -111,7 +111,7 @@ label.small:hover {
     color: hsl(0, 0%, 40%);
     padding-left: 0.5em;
   }
-
+//
   input[type='password'] {
     margin-bottom: 0.7em;
   }
@@ -138,7 +138,7 @@ label.small:hover {
     padding-left: 0.5em;
   }
 }
-
+//
 // @import compass;
 
 $bubble-d: 4.5rem; // bubble diameter
@@ -174,13 +174,13 @@ $particle-r: .5*$particle-d;
 
   box-shadow: $shadow-list;
 }
-
+////////////////////////////////////////////////////////////////////////////
 @mixin bubble($ext) {
   transform: scale(1);
   border-color: #cc8ef5;
   border-width: $ext;
 }
-
+/////////////////////////////////////////////////////////////////////////
 body {
   display: flex;
   justify-content: center;
@@ -190,7 +190,7 @@ body {
           #121721, #000);
   font: 1em verdana, sans-serif;
 }
-
+//
 [id='toggle-heart'] {
   position: absolute;
   left: -100vw;
@@ -216,7 +216,7 @@ body {
     }
   }
 }
-
+//
 [for='toggle-heart'] {
   align-self: center;
   position: relative;
@@ -247,7 +247,7 @@ body {
     @include particles(1);
   }
 }
-
+//
 @keyframes heart {
   0%, 17.5% { font-size: 0; }
 }

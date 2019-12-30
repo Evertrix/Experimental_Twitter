@@ -1,0 +1,304 @@
+* {
+    font-family: sans-serif;
+}
+body{
+    background-image: linear-gradient(to right, #33ddff, #55aaff);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    height: 100vh;
+    background-color: #fff;
+    width: 500px;
+    top: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    overflow-y: scroll;
+    transition: all .3s;
+}
+.container:hover {
+    box-shadow: 0 0 0 transparent;
+    transition: all .5s;
+}
+.bar {
+    position: fixed;
+    background-color: #44bbff;
+    top: 8px;
+    height: 50px;
+    width: 400px;
+    opacity: 0;
+    z-index: 200;
+    transition: opacity .3s;
+}
+.bar.changed {
+    opacity: 1;
+    transition: all .2s linear .1s;
+}
+.bar-name {
+    color: white;
+    margin-left: 40px;
+    margin-top: 30px;
+    opacity: 0;
+    transition: all .3s;
+}
+.bar-name.changed {
+    margin-top: 5px;
+    opacity: 1;
+    margin-left: 45px;
+    transition: all .3s;
+}
+.bar-username {
+    color: #ddf;
+    margin-top: -7px;
+    margin-left: 45px;
+    opacity: 0;
+    transition: all .1s;
+}
+.bar-username.changed {
+    margin-top: -17px;
+    opacity: 1;
+    transition: all .3s linear .3s;
+}
+.icons {
+    padding: 15px;
+    z-index: 300;
+    color: #fff;
+    position: relative;
+}
+.cover {
+    background-image: url("http://www.suetodd.com/uploads/1/9/8/4/19840203/mjm-love.jpg");
+    background-size: 500px;
+    background-repeat: no-repeat;
+    height: 150px;
+    margin-top: -30px;
+}
+.profile-pic {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-image: url("https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png");
+    background-size: 90px;
+    background-repeat: no-repeat;
+    margin: -45px 0 0 10px;
+    transform: scale(1);
+    transition: transform .2s;
+}
+.profile-pic.changed {
+    transform: scale(.6);
+    transition: transform .2s;
+}
+.edit-profile {
+    width: 120px;
+    height: 25px;
+    background: #fff;
+    float: right;
+    margin: -45px 10px 0 0;
+    border-radius: 100px;
+    border: 2px solid #bbb;
+    text-align: center;
+    padding-top: 7px;
+    color: #888;
+    font-weight: 600;
+    transition: all .2s ease;
+}
+.edit-profile:hover {
+    background: #bbb;
+    color: #fff;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+.name {
+    margin: -2px 0 0px 10px;
+    color: #555;
+    z-index: 500;
+}
+.stats {
+    margin: 50px 0 30px 10px;
+}
+.separating-line {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+}
+
+
+#better-scrollbar::-webkit-scrollbar
+{
+    width: 7px;
+    background-color: #F5F5F5;
+}
+
+#better-scrollbar::-webkit-scrollbar-thumb
+{
+    background-color: #77ddff;
+    border-radius: 10px;
+}
+
+.name-block {
+    width: 150px;
+    height: 15px;
+    background: #cdcdcd;
+    margin: 30px;
+}
+.post-block {
+    margin: 20px;
+    width: 250px;
+    height: 50px;
+    background: linear-gradient(to top, #ddd 20%, #fff 20%, #fff 40%, #ddd 40%, #ddd 60%, #fff 60%, #fff 80%, #ddd 80%);
+}
+.likes-block {
+    margin: 40px 20px 20px 20px;
+    background: linear-gradient(to right, #bbb 8%, #fff 8%, #fff 13%, #bbb 13%, #bbb 45%, #fff 45%, #fff 55%, #bbb 55%, #bbb 63%, #fff 63%, #fff 68%, #bbb 68%);
+    height: 13px;
+    width: 150px;
+}
+
+/*Consfiguring the tweets*/
+
+.twitter.boxContainer {
+    width: 410px;
+    height: 180px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.twitter.boxContainer .post_Button {
+    width: 80px;
+    height: 35px;
+    border: none;
+    float: right;
+    color: #FFFFFF;
+    display: block;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 3px;
+    margin: 0 10px 0 0;
+    background-color: #1CBEEC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding-left: 20px;
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: 5px 6px;
+    border: 1px solid transparent;
+}
+
+.twitter.boxContainer .wordCounter {
+    background-color: transparent;
+    color: #8899a6;
+    display: inline-block;
+    width: 70%;
+    border: 0;
+    padding: 0 15px;
+    position: relative;
+    vertical-align: top;
+    top: 10px;
+    text-align: right;
+    font-size: 14px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+.twitter.boxContainer .messageBox {
+    width: 93%;
+    padding: 5px;
+    resize: none;
+    height: 60px;
+    color: #292F33;
+    display: block;
+    font-size: 13px;
+    font-weight: 200;
+    margin: 10px auto;
+    border-radius: 3px;
+    border: 1px solid #a3d4f2;
+}
+
+body {
+    background: #e6ecf0;
+    font-family: 'Asap', sans-serif;
+    font-family: 'Roboto', sans-serif;
+
+}
+img {
+    max-width:100%;
+}
+.avator {
+    border-radius:100px;
+    width:48px;
+    margin-right: 15px;
+}
+
+
+.tweet-wrap {
+    max-width:490px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius:3px;
+    padding: 30px;
+    border-bottom: 1px solid #e6ecf0;
+    border-top: 1px solid #e6ecf0;
+}
+
+.tweet-header {
+    display: flex;
+    align-items:flex-start;
+    font-size:14px;
+}
+.tweet-header-info {
+    font-weight:bold;
+}
+.tweet-header-info span {
+    color:#657786;
+    font-weight:normal;
+    margin-left: 5px;
+}
+.tweet-header-info p {
+    font-weight:normal;
+    margin-top: 5px;
+}
+.tweet-img-wrap {
+    padding-left: 60px;
+}
+.tweet-info-counts {
+    display: flex;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+.tweet-info-counts div {
+    display: flex;
+    margin-right: 20px;
+}
+.tweet-info-counts div svg {
+    color:#657786;
+    margin-right: 10px;
+}
+@media screen and (max-width:430px){
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .tweet-header {
+        flex-direction:column;
+    }
+    .tweet-header img {
+        margin-bottom: 20px;
+    }
+    .tweet-header-info p {
+        margin-bottom: 30px;
+    }
+    .tweet-img-wrap {
+        padding-left: 0;
+    }
+    .tweet-info-counts {
+        display: flex;
+        margin-left: 0;
+    }
+    .tweet-info-counts div {
+        margin-right: 10px;
+    }
+}

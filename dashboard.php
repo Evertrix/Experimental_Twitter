@@ -23,6 +23,7 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
     }
 
 }
+
 // if a tweet has been submitted the save it in the database an then show the form
 
 ?>
@@ -52,8 +53,7 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/CSS/dashboard_style.css">
     <link rel="stylesheet" type="text/css" href="assets/CSS/textarea.css">
-    <link rel="stylesheet" type="text/css" href="assets/CSS/style_login.scsss">
-    <link rel="stylesheet" href="assets/CSS/style.php" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/CSS/style_login.scss">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -77,6 +77,7 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
                     <div class="twitt-logo"><img src="assets/images/twitter-icon-18-256.png"></div>
                     <br>
                     <ul>
+                        <li><a href="profile.php">Profile</a></li>
                         <li><a href="logout.php">Log Out</a></li>
                         <li><a href="change.php">Change Password</a></li>
                     </ul>
@@ -93,8 +94,7 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
                         <label class="twitter tweetHeader">Compose new Tweet</label>
                         <span class="close"></span>
                         <div class="lineSplit"></div>
-                        <textarea class="messageBox" id="postMessage" name="tweet" onkeyup="gotkey()"
-                                  placeholder="What's happening?"></textarea>
+                       <div><textarea class="messageBox" id="postMessage" name="tweet" onkeyup="gotkey()" placeholder="What's happening?"></textarea></div>
                         <label class="wordCounter" id="status"></label>
                         <input type="submit" style="background-image: url(https://lh3.googleusercontent.com/CpBwweN6YgNQGK_9LRvXKI8KEEcnMORDQGXj3XazCsK_dWlp-HzUT7YF5h7gEWP1yQ48=w300)" name="submit" class="post_Button" id="submit_Post" value = "Tweet">
                     </div>
@@ -113,8 +113,11 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
 
                 echo "<div class=\"tweet-wrap\">
   <div class=\"tweet-header\">
-    <img src=\"https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg\" style='padding-left: 10px' alt=\"\" class=\"avator\"> 
+    <img src=\"https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg\" style='padding-left: 10px' alt=\"\" class=\"avator\">
     <div class=\"tweet-header-info\">";
+                    echo '<div><a href="delete.php?id=<?php echo $row["user_id"]; ?><img class = "delete-img" src="https://cdn4.iconfinder.com/data/icons/controls-add-on-flat/48/Contols_-_Add_On-35-512.png" alt=""></a></div>';
+
+
                 echo "<div>".$row['user']."<span>•</span>"."<span>". $row['time'] ."</span>"."</div>";
                 echo "<p>" . $row['tweet'] . "</p>";
 
