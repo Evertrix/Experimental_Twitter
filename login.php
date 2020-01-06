@@ -72,7 +72,7 @@ mysqli_close($conn);
             <input name="password" type="password" placeholder="Choose a password" required="required"
                    class="input pass"/>
 
-            <input type="submit" name="login" value="Sign Up" class="inputButton">
+            <input type="submit" name="login" value="Log In" class="inputButton">
 
             <div class="text-center">
                 Don't have an account? <a href="register.php" name="user-sign-in" id="login_id">Sign Up</a>

@@ -79,6 +79,9 @@ include_once('db.php');
   <div class=\"tweet-header\">
     <img src=\"https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png\" style='padding-left: 10px' alt=\"\" class=\"avator\"> 
     <div class=\"tweet-header-info\">";
+                echo "<a href='delete.php?id=" . $row['id'] . "'>
+<img class = 'delete-img' width='30' height='30' src='https://cdn4.iconfinder.com/data/icons/controls-add-on-flat/48/Contols_-_Add_On-35-512.png' alt=''>
+</a>";
                 echo "<div>".$row['user']."<span>•</span>"."<span>". $row['time'] ."</span>"."</div>";
                 echo "<p>" . $row['tweet'] . "</p>";
 

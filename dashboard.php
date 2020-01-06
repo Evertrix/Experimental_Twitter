@@ -36,11 +36,11 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
         function gotkey() {
             var count = document.getElementById("postMessage").value.length;
 
-            if (count > 140) {
+            if (count > 280) {
                 var output = "Sorry";
                 count;
             } else {
-                var output = "Character count: " + count + " of " + 140;
+                var output = "Character count: " + count + " of " + 280;
             }
             document.getElementById("status").innerHTML = output;
         }
@@ -115,8 +115,6 @@ if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
   <div class=\"tweet-header\">
     <img src=\"https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg\" style='padding-left: 10px' alt=\"\" class=\"avator\">
     <div class=\"tweet-header-info\">";
-                    echo '<div><a href="delete.php?id=<?php echo $row["user_id"]; ?><img class = "delete-img" src="https://cdn4.iconfinder.com/data/icons/controls-add-on-flat/48/Contols_-_Add_On-35-512.png" alt=""></a></div>';
-
 
                 echo "<div>".$row['user']."<span>•</span>"."<span>". $row['time'] ."</span>"."</div>";
                 echo "<p>" . $row['tweet'] . "</p>";
