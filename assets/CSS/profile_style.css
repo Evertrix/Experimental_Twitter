@@ -1,6 +1,6 @@
-* {
-    font-family: sans-serif;
-}
+/** {*/
+/*    font-family: sans-serif;*/
+/*}*/
 body{
     background-image: linear-gradient(to right, #33ddff, #55aaff);
     overflow: hidden;
@@ -154,6 +154,22 @@ body{
     background: linear-gradient(to right, #bbb 8%, #fff 8%, #fff 13%, #bbb 13%, #bbb 45%, #fff 45%, #fff 55%, #bbb 55%, #bbb 63%, #fff 63%, #fff 68%, #bbb 68%);
     height: 13px;
     width: 150px;
+}
+
+.svg-icon {
+    width: 1em;
+    height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: #4691f6;
+}
+
+.svg-icon circle {
+    stroke: #4691f6;
+    stroke-width: 1;
 }
 
 /*Consfiguring the tweets*/
