@@ -176,7 +176,7 @@ img {
 .tweet-wrap {
     max-width:490px;
     background: #fff;
-    /*margin: 0 auto;*/
+    margin: 0 auto;
     margin-top: 50px;
     border-radius:3px;
     padding: 30px;
@@ -188,7 +188,7 @@ img {
     display: flex;
     align-items:flex-start;
     font-size:14px;
-    /*margin: 0 auto;*/
+    margin-left: -65px;
 }
 .tweet-header-info {
     font-weight:bold;
