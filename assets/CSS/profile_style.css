@@ -156,22 +156,6 @@ body{
     width: 150px;
 }
 
-.svg-icon {
-    width: 1em;
-    height: 1em;
-}
-
-.svg-icon path,
-.svg-icon polygon,
-.svg-icon rect {
-    fill: #4691f6;
-}
-
-.svg-icon circle {
-    stroke: #4691f6;
-    stroke-width: 1;
-}
-
 /*Consfiguring the tweets*/
 
 .twitter.boxContainer {
@@ -318,3 +302,44 @@ img {
         margin-right: 10px;
     }
 }
+
+.svg-icon {
+    width: 5em;
+    height: 5em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: #4691f6;
+}
+
+.svg-icon circle {
+    stroke: #4691f6;
+    stroke-width: 1;
+}
+
+
+
+
+
+.svg-back {
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+/*.svg-back path,*/
+/*.svg-back polygon,*/
+/*.svg-back rect {*/
+/*    fill: #4691f6;*/
+/*}*/
+
+/*.svg-back circle {*/
+/*    stroke: #4691f6;*/
+/*    stroke-width: 1;*/
+/*}*/
+

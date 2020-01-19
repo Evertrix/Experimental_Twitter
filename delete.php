@@ -28,7 +28,6 @@
 session_start();
 include_once('db.php');
 
-//$dbc = mysqli_connect('localhost', 'username', 'password', 'myblog');
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Display the entry in a form:
     // Define the query:

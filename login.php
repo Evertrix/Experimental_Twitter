@@ -69,7 +69,7 @@ mysqli_close($conn);
             <input name="username" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$"
                    autofocus="autofocus" required="required" class="input pass"/>
 
-            <input name="password" type="password" placeholder="Choose a password" required="required"
+            <input name="password" type="password" placeholder="Password" required="required"
                    class="input pass"/>
 
             <input type="submit" name="login" value="Log In" class="inputButton">
