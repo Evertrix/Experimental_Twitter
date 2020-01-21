@@ -94,10 +94,10 @@ mysqli_close($conn);
     <div id="logbox">
         <form id="signup" method="post" action="register.php">
             <h1>Create an Account</h1>
-            <input name="username" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$"
+            <input name="username" type="text" placeholder="Username" pattern="^[\w]{3,16}$"
                    autofocus="autofocus" required="required" class="input pass"/>
             <input name="email" type="email" placeholder="Email address" class="input pass"/>
-            <input name="password" type="password" placeholder="Choose a password" required="required"
+            <input name="password" type="password" placeholder="Choose password" required="required"
                    class="input pass"/>
             <input name="retyped_password" type="password" placeholder="Confirm password" required="required"
                    class="input pass"/>
