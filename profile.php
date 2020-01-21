@@ -106,19 +106,28 @@ include_once('db.php');
         <div class="name--description">I am usually not very inspired...<br>P.S I don't have twitter don't search</div>
     </div>
     <div class="stats">
-        <b>9</b> Likes &nbsp;&nbsp; <b>99</b> Comments
+
+        <?php
+
+        $count = 'SELECT COUNT(id) AS Total FROM tweets WHERE user = "'.$_SESSION["username"].'"';
+        $num_seats = mysqli_query($conn, $count);
+        $rows = mysqli_fetch_array($num_seats);
+
+        echo 'You have '.'<b>'.$rows['Total'].'</b> Tweets &nbsp;&nbsp;';
+//        echo '<b>99</b> Comments';
+
+        ?>
+
     </div>
     <div class="separating-line"></div>
     <div class="post">
         <?php
-        $select = "select * from tweets where user = '".$_SESSION['username']."' ORDER BY id DESC";
-//        $select = "SELECT * FROM tweets ORDER BY id DESC";
+        $select = "SELECT * FROM tweets WHERE user = '".$_SESSION['username']."' ORDER BY id DESC";
         $res = mysqli_query($conn, $select);
 
         if (mysqli_num_rows($res) > 0) {
 
             while ($row = mysqli_fetch_assoc($res)) {
-
                 echo '<div class="tweet-wrap">
   <div class="tweet-header">
     <img src="https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png" style="padding-left: 10px" class="avator">

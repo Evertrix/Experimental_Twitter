@@ -7,6 +7,9 @@ include_once('db.php');
 
 $make_a_tweet = $_POST['tweet'];
 $make_image = $_POST['the_file'];
+define ('MAX_FILE_SIZE', 1000000);
+$permitted = array('image/gif', 'image/jpeg', 'image/png', 'image/pjpeg', 'text/plain');
+
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -18,20 +21,17 @@ if (!isset($_SESSION['user_id'])) {
 if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
     $sql = "INSERT INTO tweets (user_id, user, tweet, image) VALUES ('{$_SESSION['user_id']}', '{$_SESSION['username']}', '$make_a_tweet', '{$_FILES['the_file']['name']}')";
 
-    if (mysqli_query($conn, $sql) == true) {
-        header("Location: dashboard.php");
-        die();
-    }
+
 
 }
-
+$abs_upload_path = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR  . "uploads" . DIRECTORY_SEPARATOR ;
 
 if ($_FILES['the_file']['size'] > 0 && $_FILES['the_file']['size'] <= MAX_FILE_SIZE) {
-    if ($error == false) {
-        move_uploaded_file($_FILES["the_file"]["tmp_name"], "assets/uploads/" . $_FILES["the_file"]["name"]);
+    if ($_FILES['the_file']['error'] == 0) {
+        move_uploaded_file($_FILES["the_file"]["tmp_name"], $abs_upload_path . $_FILES["the_file"]["name"]);
 
-        if( $filetype == "image" )
-        {
+        if(in_array($_FILES['the_file']['type'], $permitted)) {
+
             echo '<img src="assets/uploads/'.$_FILES["the_file"]["name"].'">';
         }
         elseif($filetype == "text")
@@ -42,6 +42,11 @@ if ($_FILES['the_file']['size'] > 0 && $_FILES['the_file']['size'] <= MAX_FILE_S
     } else {
         echo "Not permitted filetype.";
     }
+}
+
+if (mysqli_query($conn, $sql) == true) {
+    header("Location: dashboard.php");
+    die();
 }
 
 
@@ -107,7 +112,7 @@ if ($_FILES['the_file']['size'] > 0 && $_FILES['the_file']['size'] <= MAX_FILE_S
         </div>
 
         <div class="publish">
-            <form method="post" action="dashboard.php" enctype="multipart/form-data">
+            <form method="post" action="/dashboard.php" enctype="multipart/form-data">
                 <div class="twitter boxContainer">
                     <div class="twitter boxContainer">
                         <label class="twitter tweetHeader">Compose new Tweet</label>
@@ -154,15 +159,6 @@ if (mysqli_num_rows($res) > 0) {
   <div class="tweet-header">
     <img src="https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg" style="padding-left: 10px" class="avator">
     <div class="tweet-header-info">';
-
-//
-//        if ($row['user_id'] !== $row['id']) {
-//            echo '<a href="delete.php?id=' . $row["id"] . '">
-//<svg class="svg-icon" viewBox="0 0 20 20" style = "width: 20px; height: 20px; margin-bottom: 10px; margin-left: 330px">
-//	<path fill="none" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
-//</svg>
-//</a>';
-//        }
 
         echo "<div>" . $row['user'] . "<span>•</span>" . "<span>" . $row['time'] . "</span>" . "</div>";
         echo "<p>" . $row['tweet'] . "</p>";

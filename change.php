@@ -61,7 +61,6 @@ mysqli_close($conn);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
-    <link rel="stylesheet" type="text/css" href="assets/CSS/style_login.scss">
     <link rel="stylesheet" type="text/css" href="assets/CSS/style_register.css">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -70,8 +69,13 @@ mysqli_close($conn);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Change Password</title>
 </head>
-<body>
+<body id = "body">
 
+<header>
+    <div>
+        <img src="assets/images/twitter-icon-18-256.png" class="tweet-image">
+    </div>
+</header>
 
 <div class="col-md">
     <div id="logbox">
