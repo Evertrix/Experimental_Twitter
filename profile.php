@@ -142,7 +142,7 @@ include_once('db.php');
                 echo "<div>" . $row['user'] . "<span>•</span>" . "<span>" . $row['time'] . "</span>" . "</div>";
                 echo "<p>" . $row['tweet'] . "</p>";
                 if ($row['image']) {
-                    echo '<img style="width:100px; height: 100px;" src="assets/uploads/' . $row['image'] . '">';
+                    echo '<img style="width:100px; height: 100px; margin-left: 100px;" src="assets/uploads/' . $row['image'] . '">';
                 }
 
                 echo "</div>";
