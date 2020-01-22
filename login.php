@@ -73,6 +73,13 @@ mysqli_close($conn);
                    class="input pass"/>
 
             <input type="submit" name="login" value="Log In" class="inputButton">
+            <?php if(count($errors) > 0) {
+                foreach($errors as $error) {
+                    echo '<p class="text-center alert alert-danger">'.$error.'</p>';
+                }
+                }
+
+                ?>
 
             <div class="text-center">
                 Don't have an account? <a href="register.php" name="user-sign-in" id="login_id">Sign Up</a>
