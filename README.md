@@ -31,3 +31,10 @@ file.
 
 And that is it! You can make your own account with Username, Email and Password. You can change your password afterwards and publish a tweet with everithing on your mind.
 
+
+In order to use the upload file function, make an "uploads" folder in the assets forlder like this:
+ 
+```php
+/assets/uploads
+``` 
+
