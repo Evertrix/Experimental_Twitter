@@ -20,9 +20,6 @@ if (!isset($_SESSION['user_id'])) {
 
 if (isset($_POST["tweet"]) && !empty($_POST["tweet"])) {
     $sql = "INSERT INTO tweets (user_id, user, tweet, image) VALUES ('{$_SESSION['user_id']}', '{$_SESSION['username']}', '$make_a_tweet', '{$_FILES['the_file']['name']}')";
-
-
-
 }
 $abs_upload_path = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR  . "uploads" . DIRECTORY_SEPARATOR ;
 

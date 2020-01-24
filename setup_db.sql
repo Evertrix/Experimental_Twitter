@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 11, 2020 at 09:54 PM
+-- Generation Time: Jan 24, 2020 at 12:03 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.7
 
@@ -25,15 +25,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `tweets`
 --
 
-DROP TABLE IF EXISTS `tweets`;
-CREATE TABLE IF NOT EXISTS `tweets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tweets` (
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `user` varchar(140) NOT NULL,
   `tweet` varchar(280) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `userid` (`user_id`)
+  `image` varchar(280) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -42,15 +40,46 @@ CREATE TABLE IF NOT EXISTS `tweets` (
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `username` varchar(140) NOT NULL,
   `email` varchar(140) NOT NULL,
   `password` varchar(140) NOT NULL,
-  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tweets`
+--
+ALTER TABLE `tweets`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userid` (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tweets`
+--
+ALTER TABLE `tweets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
