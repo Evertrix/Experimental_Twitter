@@ -109,7 +109,7 @@ if (mysqli_query($conn, $sql) == true) {
         </div>
 
         <div class="publish">
-            <form method="post" action="/dashboard.php" enctype="multipart/form-data">
+            <form method="post" action="dashboard.php" enctype="multipart/form-data">
                 <div class="twitter boxContainer">
                     <div class="twitter boxContainer">
                         <label class="twitter tweetHeader">Compose new Tweet</label>
