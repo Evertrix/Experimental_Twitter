@@ -268,3 +268,103 @@ circle {
     stroke: #4691f6;
     stroke-width: 1px;
 }
+
+
+/* .heart {
+    cursor: pointer;
+    background-image:url( 'https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png');
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size:2900%;    
+    width: 92px;
+    height: 25px;
+    margin-right: 2px;
+    margin-left: -20px;
+    margin-top: 0px;
+
+  }
+  
+  .heart:hover {
+    background-position:right;
+  }
+  
+  .is_animating {
+    animation: heart-burst .8s steps(28) 1;
+  }
+  
+  @keyframes heart-burst {
+    from {background-position:left;}
+    to { background-position:right;}
+  } */
+
+  .like-btn {
+  display: inline-block;
+  Cursor: pointer;
+  width: 80px;
+  height: 25px;
+  margin-left: -20px;
+}
+
+.like-btn {
+  background: url('https://i.ibb.co/vw78mf3/heart.png') no-repeat 0% 50%;
+  background-size: 2900%;
+}
+
+.like-active {
+  animation-name: animate;
+  animation-duration: .8s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.like-active {
+  animation-timing-function: steps(28);
+}
+
+@keyframes animate {
+  0%   { background-position: left;  }
+  50%  { background-position: right; }
+  100% { background-position: right; }
+}
+
+
+
+
+
+
+.profile-pic {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+}
+
+.file-upload {
+    display: none;
+}
+.circle {
+    border-radius: 1000px !important;
+    overflow: hidden;
+    width: 128px;
+    height: 128px;
+    border: 8px solid rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 72px;
+}
+
+.p-image {
+    position: absolute;
+    top: 167px;
+    right: 30px;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.p-image:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.upload-button {
+    font-size: 1.2em;
+}
+
+.upload-button:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #999;
+}

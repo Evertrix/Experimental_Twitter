@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 24, 2020 at 12:03 PM
+-- Generation Time: Jan 28, 2020 at 12:27 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.7
 
@@ -18,6 +18,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Database: `twitter`
+--
 
 -- --------------------------------------------------------
 
@@ -34,7 +37,6 @@ CREATE TABLE `tweets` (
   `image` varchar(280) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
@@ -45,11 +47,13 @@ CREATE TABLE `users` (
   `username` varchar(140) NOT NULL,
   `email` varchar(140) NOT NULL,
   `password` varchar(140) NOT NULL,
-  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `profile_image` varchar(280) NOT NULL,
+  `wallpaper` varchar(280) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `users`
 --
 
 --
@@ -73,13 +77,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tweets`
 --
 ALTER TABLE `tweets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=268;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
