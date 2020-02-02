@@ -3,67 +3,83 @@ session_start();
 
 include_once('db.php');
 
-//$sql = "SELECT * FROM users";
-//$result = mysqli_query($conn, $sql);
-//$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
-//
-//define ('MAX_FILE_SIZE', 1000000);
-//$permitted = array('image/gif', 'image/jpeg', 'image/png', 'image/pjpeg', 'text/plain');
-//
-//$abs_upload_path = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR  . "profile_image" . DIRECTORY_SEPARATOR;
-//
-//if ($_FILES['pic']['size'] > 0 && $_FILES['pic']['size'] <= MAX_FILE_SIZE) {
-//    if ($_FILES['pic']['error'] == 0) {
-//
-//        if(move_uploaded_file($_FILES["pic"]["tmp_name"], $abs_upload_path . $_FILES["pic"]["name"])) {
-//            $sql = "INSERT INTO users (profile_image) VALUES ('{$_FILES["pic"]["name"]}') ";
-//            mysqli_query($conn, $sql);
-//        }
-//
-//        if(in_array($_FILES['pic']['type'], $permitted)) {
-//
-//            echo '<img src="assets/profile_image/'.$_FILES["pic"]["name"].'">';
-//        }
-//        elseif($filetype == "text")
-//        {
-//            echo nl2br( file_get_contents("assets/profile_image/".$_FILES["pic"]["name"]) );
-//        }
-//
-//    } else {
-//        echo "Not permitted filetype.";
-//    }
-//}
-
-
-
-define ('MAX_FILE_SIZE', 1000000);
+define('MAX_FILE_SIZE', 1000000);
 $permitted = array('image/gif', 'image/jpeg', 'image/png', 'image/pjpeg', 'text/plain');
 
+//
+//if (isset($_POST["submit_image"])) {
+//
+//        $sql = "UPDATE users SET profile_image = '{$_FILES['upload_file']['name']}', wallpaper = '{$_FILES['upload_wall']['name']}' WHERE username = '{$_SESSION['username']}';";
+//        $num_wall = mysqli_query($conn, $sql);
+//        $file_image = mysqli_fetch_assoc($num_wall);
+//    $uploadfile = $_FILES["upload_file"]["tmp_name"];
+//    $abs_upload_path = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "profile_image" . DIRECTORY_SEPARATOR;
+//
+//    if ($_FILES['upload_file']['size'] > 0 && $_FILES['upload_file']['size'] <= MAX_FILE_SIZE) {
+//        if ($_FILES['the_file']['error'] == 0) {
+//
+//            move_uploaded_file($_FILES["upload_file"]["tmp_name"], "$abs_upload_path" . $_FILES["upload_file"]["name"]);
+//            if (in_array($_FILES['upload_file']['type'], $permitted) && in_array($_FILES['upload_file']['type'], $permitted)) {
+////                echo '<img src="assets/profile_image/' . $_FILES["upload_file"]["name"] . '">';
+//            }
+//
+//            if ($filetype == "text") {
+//
+//                echo nl2br(file_get_contents("assets/profile_image/" . $_FILES["upload_file"]["name"]));
+//            }
+//
+//        } else {
+//            echo "Not permitted filetype.";
+//        }
+//    }
+//    }
+
+//            $uploadfile_wall = $_FILES["upload_wall"]["tmp_name"];
+//            $abs_upload_path_wall = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "wallpaper" . DIRECTORY_SEPARATOR;
+//
+//            if ($_FILES['upload_wall']['size'] > 0 && $_FILES['upload_wall']['size'] <= MAX_FILE_SIZE) {
+//                if ($_FILES['the_file']['error'] == 0) {
+//
+//                    move_uploaded_file($_FILES["upload_wall"]["tmp_name"], "$abs_upload_path_wall" . $_FILES["upload_wall"]["name"]);
+//
+//                    if (in_array($_FILES['upload_wall']['type'], $permitted)) {
+//                        echo '<img src="assets/wallpaper/' . $_FILES["upload_wall"]["name"] . '">';
+//
+//                    } elseif ($filetype == "text") {
+//                        echo nl2br(file_get_contents("assets/wallpaper/" . $_FILES["upload_wall"]["name"]));
+//                    }
+//
+//                } else {
+//                    echo "Not permitted filetype.";
+//                }
+//            }
+
+//if(isset($_POST["submit_image"])) {
 
 if (isset($_POST["submit_image"])) {
+
     $sql = "UPDATE users SET profile_image = '{$_FILES['upload_file']['name']}' WHERE username = '{$_SESSION['username']}';";
-    $num_seats = mysqli_query($conn, $sql);
-    $my_image = mysqli_fetch_assoc($num_seats);
+    $num_wall = mysqli_query($conn, $sql);
+    $file_image = mysqli_fetch_assoc($num_wall);
 }
 
+if(empty($_POST["submit_image"])) {
 
-if(isset($_POST['submit_image'])) {
     $uploadfile = $_FILES["upload_file"]["tmp_name"];
-    $abs_upload_path = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR  . "profile_image" . DIRECTORY_SEPARATOR;
+    $abs_upload_path = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "profile_image" . DIRECTORY_SEPARATOR;
 
     if ($_FILES['upload_file']['size'] > 0 && $_FILES['upload_file']['size'] <= MAX_FILE_SIZE) {
         if ($_FILES['the_file']['error'] == 0) {
 
             move_uploaded_file($_FILES["upload_file"]["tmp_name"], "$abs_upload_path" . $_FILES["upload_file"]["name"]);
 
-
-            if(in_array($_FILES['upload_file']['type'], $permitted)) {
-
-                echo '<img src="assets/profile_image/'.$_FILES["upload_file"]["name"].'">';
+            if (in_array($_FILES['upload_file']['type'], $permitted) && in_array($_FILES['upload_file']['type'], $permitted)) {
+//                echo '<img src="assets/profile_image/' . $_FILES["upload_file"]["name"] . '">';
             }
-            elseif($filetype == "text")
-            {
-                echo nl2br( file_get_contents("assets/profile_image/".$_FILES["upload_file"]["name"]) );
+
+            if ($filetype == "text") {
+
+                echo nl2br(file_get_contents("assets/profile_image/" . $_FILES["upload_file"]["name"]));
             }
 
         } else {
@@ -73,42 +89,42 @@ if(isset($_POST['submit_image'])) {
 }
 
 
-if (isset($_POST["submit_wall"])) {
-    $sql_wall = "UPDATE users SET wallpaper = '{$_FILES['upload_wall']['name']}' WHERE username = '{$_SESSION['username']}';";
-    $query_wall = mysqli_query($conn, $sql_wall);
-    $image_wall = mysqli_fetch_assoc($query_wall);
+
+if (isset($_POST["submit_wall"]) && empty($_POST["upload_wall"])) {
+    $sql = "UPDATE users SET wallpaper = '{$_FILES['upload_wall']['name']}' WHERE username = '{$_SESSION['username']}';";
+    $num_wall = mysqli_query($conn, $sql);
+    $file_image = mysqli_fetch_assoc($num_wall);
 }
 
+if(empty($_POST["submit_wall"])) {
 
-if(isset($_POST['submit_wall'])) {
-    $uploadfile = $_FILES["upload_wall"]["tmp_name"];
-    $abs_upload_path = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR  . "wallpaper" . DIRECTORY_SEPARATOR;
+    $uploadfile_wall = $_FILES["upload_wall"]["tmp_name"];
+    $abs_upload_path_wall = __DIR__ . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "wallpaper" . DIRECTORY_SEPARATOR;
 
     if ($_FILES['upload_wall']['size'] > 0 && $_FILES['upload_wall']['size'] <= MAX_FILE_SIZE) {
         if ($_FILES['the_file']['error'] == 0) {
 
-            move_uploaded_file($_FILES["upload_wall"]["tmp_name"], "$abs_upload_path" . $_FILES["upload_wall"]["name"]);
+            move_uploaded_file($_FILES["upload_wall"]["tmp_name"], "$abs_upload_path_wall" . $_FILES["upload_wall"]["name"]);
 
-            if(in_array($_FILES['upload_wall']['type'], $permitted)) {
+            if (in_array($_FILES['upload_wall']['type'], $permitted)) {
+                echo '<img src="assets/wallpaper/' . $_FILES["upload_wall"]["name"] . '">';
 
-//                echo '<img src="assets/wallpaper/'.$_FILES["upload_wall"]["name"].'">';
-            }
-            elseif($filetype == "text")
-            {
-                echo nl2br( file_get_contents("assets/wallpaper/".$_FILES["upload_wall"]["name"]) );
+            } elseif ($filetype == "text") {
+                echo nl2br(file_get_contents("assets/wallpaper/" . $_FILES["upload_wall"]["name"]));
             }
 
         } else {
             echo "Not permitted filetype.";
         }
+
     }
 }
+
 
 if (mysqli_query($conn, $sql) == true) {
     header("Location: profile.php");
     die();
 }
-
 
 ?>
 
@@ -120,46 +136,60 @@ if (mysqli_query($conn, $sql) == true) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/CSS/profile_style.css" type="text/css">
-    <link rel = "stylesheet" href = "assets/CSS/style_prof.css"/>
+    <link rel="stylesheet" href="assets/CSS/style_prof.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/twitter-icon-18-256.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
 <script>
-    $(".container").scroll(function() {
-        if($(this).scrollTop()>=80) {
+    $(".container").scroll(function () {
+        if ($(this).scrollTop() >= 80) {
             $(".bar").delay(200).addClass("changed");
             $(".profile-pic").addClass("changed");
-            if($(this).scrollTop()>=180) {
+            if ($(this).scrollTop() >= 180) {
                 $(".bar-name").addClass("changed");
                 $(".bar-username").addClass("changed");
-            }
-            else {
+            } else {
                 $(".bar-name").removeClass("changed");
                 $(".bar-username").removeClass("changed");
             }
-        }
-        else {
+        } else {
             $(".bar").removeClass("changed");
             $(".profile-pic").removeClass("changed");
         }
     });
 
 
-    $(document).ready(function() {
-        $('form').ajaxForm(function() {
-        });
+    // $(document).ready(function () {
+    //     $('form').ajaxForm(function () {
+    //     });
+    // });
+
+
+    $('#exampleModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
     });
 
 </script>
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
+<div class="container" id="better-scrollbar" style = "width: 540px">
 
-<div class="container" id="better-scrollbar">
-
-        <a href="dashboard.php">
-            <img style = "position: absolute; left: 0px; top: 0px; height: 50px" src = "https://cdn2.iconfinder.com/data/icons/simple-circular-icons-line/84/Left_Carrot-512.png">
-        </a>
+    <a href="dashboard.php">
+        <img style="position: absolute; left: 0px; top: 0px; height: 50px"
+             src="https://cdn2.iconfinder.com/data/icons/simple-circular-icons-line/84/Left_Carrot-512.png">
+    </a>
 
     <div class="bar">
         <h3 class="bar-name"><?php echo $_SESSION['username'] ?></h3>
@@ -173,57 +203,99 @@ if (mysqli_query($conn, $sql) == true) {
             <i class="fa fa-bars"></i>
         </div>
     </div>
-<div class = "cover">
+    <div class="cover">
         <?php
-
-        $info_wall = 'SELECT * FROM users WHERE username = "'.$_SESSION["username"].'"';
+        $info_wall = 'SELECT wallpaper FROM users WHERE username = "' . $_SESSION["username"] . '"';
         $user_info_wall = mysqli_query($conn, $info_wall);
         $img_wall = mysqli_fetch_array($user_info_wall);
 
-        echo '<img style="width:100px; height:100px;" src="assets/wallpaper/' . $img_wall['wallpaper']. '">';
+        echo '<img style="width:100px; height:100px;" src="assets/wallpaper/' . $img_wall['wallpaper'] . '">';
         ?>
-    <form action="profile.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="upload_wall" id="upload_file" />
-        <input type="submit" name='submit_wall' value="Upload Image"/>
-    </form>
 
-</div>
+
+    </div>
+
+
     <div class="profile-pic">
 
 
-    <div class="avatar-wrapper">
+        <div class="avatar-wrapper">
 
-        <div id="wrapper">
-            <form action="profile.php" method="post" enctype="multipart/form-data">
-                <input type="file" id="upload_file" name="upload_file" />
-                <input type="submit" name='submit_image' value="Upload Image"/>
-            </form>
-            <?php
+            <div id="wrapper">
+                <?php
+                $info = 'SELECT profile_image FROM users WHERE username = "' . $_SESSION["username"] . '"';
+                $user_info = mysqli_query($conn, $info);
+                $img = mysqli_fetch_array($user_info);
+                echo '<img id = "uploaded_image" style="width:100px; height:100px;" src="assets/profile_image/' . $img['profile_image'] . '">';
 
-            $info = 'SELECT * FROM users WHERE username = "'.$_SESSION["username"].'"';
-            $user_info = mysqli_query($conn, $info);
-            $img = mysqli_fetch_array($user_info);
+                ?>
+            </div>
 
-            echo '<img style="width:100px; height:100px;" src="assets/profile_image/' . $img['profile_image']. '">';
-            ?>
+        </div>
+        <div class="d-flex flex-row-reverse">
+        <button type="button" class="btn btn-primary text-md-right" id="myInput" data-toggle="modal"
+                data-target=".bd-example-modal-lg">Edit Profile
+        </button>
         </div>
 
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <form action="profile.php" method="post" enctype="multipart/form-data">
+<br>
+                        <input type="file" name="upload_wall" id="upload_file"/>
+                        <input type="submit" name='submit_wall' class="btn btn-primary" value="Upload Wallpaper"/><br><br><br>
+
+                        <input type="file" name="upload_file" id="upload_file"/>
+                        <input type="submit" name='submit_image' class="btn btn-primary" value="Upload Profile Pictire"/>
+
+
+                        <div class="cover">
+                            <?php
+                                $info_wall = 'SELECT wallpaper FROM users WHERE username = "' . $_SESSION["username"] . '"';
+                                $user_info_wall = mysqli_query($conn, $info_wall);
+                                $img_wall = mysqli_fetch_array($user_info_wall);
+
+//                                echo '<img style="width:100px; height:100px;" src="assets/wallpaper/' . $img_wall['wallpaper']. '">';
+                            echo '</div>';
+
+                            echo '<div id="wrapper">';
+
+                                $info = 'SELECT profile_image FROM users WHERE username = "' . $_SESSION["username"] . '"';
+                                $user_info = mysqli_query($conn, $info);
+                                $img = mysqli_fetch_array($user_info);
+
+//                                echo '<img style="width:50px; height:100px;" src="assets/profile_image/' . $img['profile_image']. '">';
+
+                            ?>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<!--                            <input type="submit" name='submit_image' class="btn btn-primary" value="Upload Image"/>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-<div class="edit-profile">Edit profile</div>
+
     <div class="name">
         <div class="name--fullname"><?php echo $_SESSION['username'] ?></div>
-        <div class="name--description">I am usually not very inspired...<br>P.S I don't have twitter don't search</div>
+        <div class="name--description">I am usually not very inspired...<br>P.S I don't have twitter don't search
+        </div>
     </div>
     <div class="stats">
 
         <?php
 
-        $count = 'SELECT COUNT(id) AS Total FROM tweets WHERE user = "'.$_SESSION["username"].'"';
+        $count = 'SELECT COUNT(id) AS Total FROM tweets WHERE user = "' . $_SESSION["username"] . '"';
         $num_seats = mysqli_query($conn, $count);
         $rows = mysqli_fetch_array($num_seats);
 
-        echo 'You have '.'<b>'.$rows['Total'].'</b> Tweets &nbsp;&nbsp;';
-//        echo '<b>99</b> Comments';
+        echo 'You have ' . '<b>' . $rows['Total'] . '</b> Tweets &nbsp;&nbsp;';
+        //        echo '<b>99</b> Comments';
 
         ?>
 
@@ -231,7 +303,7 @@ if (mysqli_query($conn, $sql) == true) {
     <div class="separating-line"></div>
     <div class="post">
         <?php
-        $select = "SELECT * FROM tweets WHERE user = '".$_SESSION['username']."' ORDER BY id DESC";
+        $select = "SELECT * FROM tweets WHERE user = '" . $_SESSION['username'] . "' ORDER BY id DESC";
         $res = mysqli_query($conn, $select);
 
         if (mysqli_num_rows($res) > 0) {
@@ -239,7 +311,7 @@ if (mysqli_query($conn, $sql) == true) {
             while ($row = mysqli_fetch_assoc($res)) {
                 echo '<div class="tweet-wrap">
   <div class="tweet-header">
-    <img src="assets/profile_image/' . $img['profile_image']. '" style="padding-left: 10px" class="avator">
+    <img src="assets/profile_image/' . $img['profile_image'] . '" style="padding-left: 10px" class="avator">
     <div class="tweet-header-info">';
 
                 echo '<a style = "margin-left: 330px" href="delete.php?id=' . $row["id"] . '">
@@ -289,7 +361,7 @@ if (mysqli_query($conn, $sql) == true) {
         }
 
         mysqli_close($conn);
-    ?>
+        ?>
     </div>
 </div>
 

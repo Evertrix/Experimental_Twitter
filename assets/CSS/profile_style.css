@@ -10,8 +10,8 @@ body{
 }
 .container{
     height: 100vh;
+    width: 540px;
     background-color: #fff;
-    width: 500px;
     top: 5px;
     margin-bottom: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,.3);
@@ -277,7 +277,7 @@ img {
     color:#657786;
     margin-right: 10px;
 }
-@media screen and (max-width:430px){
+@media screen and (max-width:1200px){
     body {
         padding-left: 20px;
         padding-right: 20px;
@@ -332,14 +332,4 @@ img {
     z-index: -1;
 }
 
-/*.svg-back path,*/
-/*.svg-back polygon,*/
-/*.svg-back rect {*/
-/*    fill: #4691f6;*/
-/*}*/
-
-/*.svg-back circle {*/
-/*    stroke: #4691f6;*/
-/*    stroke-width: 1;*/
-/*}*/
 
