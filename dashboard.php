@@ -115,13 +115,13 @@ if (mysqli_query($conn, $sql) == true) {
                         <label class="twitter tweetHeader">Compose new Tweet</label>
                         <span class="close"></span>
                         <div class="lineSplit"></div>
-                        <div><textarea class="messageBox" id="postMessage" name="tweet" onkeyup="gotkey()"
-                                       placeholder="What's happening?"></textarea></div>
+                        <div><textarea class="messageBox" id="postMessage" name="tweet" onkeyup="gotkey()" placeholder="What's happening?"></textarea></div>
                         <input type="hidden" name="MAX_FILE_SIZE" value="300000">
 
                         <input name="the_file"
                                accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/quicktime" multiple=""
                                tabindex="-1" type="file" data-focusable="true">
+
                         <p><input type="submit"
                                   style="background-image: url(https://lh3.googleusercontent.com/CpBwweN6YgNQGK_9LRvXKI8KEEcnMORDQGXj3XazCsK_dWlp-HzUT7YF5h7gEWP1yQ48=w300)"
                                   class="post_Button" id="submit_Post" name="submit" value="Tweet"></p>
