@@ -125,9 +125,9 @@ include_once('upload.php');
                                value="Upload Profile Pictire"/>
                         <br><br>
 
-                        <h4>Bio: </h4>
+                        <h4> Add Bio: </h4>
                         <textarea style="width: 350px; height: 100px;" name="mybio" id="Bio"
-                                  placeholder="Bio:"></textarea>
+                                  placeholder="Add Bio:"></textarea>
                         <input name="set_bio" class="btn btn-primary" value="Update Bio" type="submit"/>
 
                         <!--                        <input type="submit" name='submit_image' class="btn btn-primary" value="Upload Image"/>-->
@@ -201,7 +201,7 @@ include_once('upload.php');
             while ($row = mysqli_fetch_assoc($res)) {
                 echo '<div class="tweet-wrap">
   <div class="tweet-header">
-    <img src="assets/profile_image/' . $img['profile_image'] . '" style="padding-left: 10px" class="avator">
+    <img src="assets/profile_image/' . $img['profile_image'] . '" class="avator">
     <div class="tweet-header-info">';
 
                 echo '<a style = "margin-left: 330px" href="delete.php?id=' . $row["id"] . '">
@@ -212,7 +212,7 @@ include_once('upload.php');
                 echo "<div>" . $row['user'] . "<span>•</span>" . "<span>" . $row['time'] . "</span>" . "</div>";
                 echo "<p>" . $row['tweet'] . "</p>";
                 if ($row['image']) {
-                    echo '<img style="width:100px; height: 100px; margin-left: 100px;" src="assets/uploads/' . $row['image'] . '">';
+                    echo '<img style="text-align: center; display: block; width:300px; height:300px; margin-left: 15px;" src="assets/uploads/' . $row['image'] . '">';
                 }
 
                 echo "</div>";

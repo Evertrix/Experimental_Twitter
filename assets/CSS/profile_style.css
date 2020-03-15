@@ -229,7 +229,8 @@ img {
 }
 .avator {
     border-radius:100px;
-    width:48px;
+    width:50px;
+    height:50px;
     margin-right: 15px;
 }
 
@@ -267,7 +268,7 @@ img {
 }
 .tweet-info-counts {
     display: flex;
-    margin-left: 60px;
+    margin-left: 75px;
     margin-top: 10px;
 }
 .tweet-info-counts div {
@@ -319,10 +320,6 @@ img {
     stroke: #4691f6;
     stroke-width: 1;
 }
-
-
-
-
 
 .svg-back {
     width: 3em;
