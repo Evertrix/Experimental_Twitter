@@ -27,7 +27,7 @@ function upload_image()
     }
 }
 
-//<img src="https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg" style="padding-left: 10px" class="avator">
+//<img src="https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg" style="padding-left: 10px" class="avatаr">
 
 
 
@@ -48,8 +48,8 @@ function upload_tweet($conection, $db_table)
                   <div class="tweet-header">';
             echo '<div class="profile-pic">
         <div class="avatar-wrapper">';
-            echo '<img id = "uploaded_image" class = "avator" style="width:50px; height:50px;" src="assets/profile_image/' . $img['profile_image'] . '">';
-//                echo '<img id = "uploaded_image" class = "avator" style="width:50px; height:50px;" src="https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg">';
+            echo '<img id = "uploaded_image" class = "avatаr" style="width:50px; height:50px;" src="assets/profile_image/' . $img['profile_image'] . '">';
+//                echo '<img id = "uploaded_image" class = "avatаr" style="width:50px; height:50px;" src="https://icon-library.net/images/user-icon-image/user-icon-image-20.jpg">';
             echo '</div>';
             echo '</div>';
             echo '<div class="tweet-header-info">';

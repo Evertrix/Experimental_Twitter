@@ -201,7 +201,7 @@ include_once('upload.php');
             while ($row = mysqli_fetch_assoc($res)) {
                 echo '<div class="tweet-wrap">
   <div class="tweet-header">
-    <img src="assets/profile_image/' . $img['profile_image'] . '" class="avator">
+    <img src="assets/profile_image/' . $img['profile_image'] . '" class="avatаr">
     <div class="tweet-header-info">';
 
                 echo '<a style = "margin-left: 330px" href="delete.php?id=' . $row["id"] . '">
